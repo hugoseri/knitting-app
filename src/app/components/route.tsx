@@ -5,19 +5,21 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Layout from "./layout";
 
-export default function ProtectedRouter({
+export default function Route({
+  authRequired,
   children,
 }: {
+  authRequired: boolean;
   children: React.ReactNode;
 }) {
   const { status } = useSession();
   const router = useRouter();
 
   useEffect(() => {
-    if (status === "unauthenticated") {
+    if (authRequired && status === "unauthenticated") {
       router.push("/");
     }
-  }, [status, router]);
+  }, [authRequired, status, router]);
 
   if (status === "loading") {
     return (

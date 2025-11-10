@@ -35,9 +35,11 @@ function AuthManager() {
   }
 
   if (status === "loading") {
-    <Layout>
-      <h3 className="text-2xl font-extrabold text-white">Loading...</h3>
-    </Layout>;
+    return (
+      <Layout>
+        <h3 className="text-2xl font-extrabold text-white">Loading...</h3>
+      </Layout>
+    );
   }
 
   const [loginLoading, setLoginLoading] = useState(false);
@@ -46,7 +48,7 @@ function AuthManager() {
     setLoginLoading(true);
     try {
       await signIn(authProviders.google.id, {
-        callbackUrl: callbackUrl ?? "/",
+        callbackUrl: callbackUrl ?? "/dashboard",
       });
       router.push("/dashboard");
     } catch (error) {

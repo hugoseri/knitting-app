@@ -12,7 +12,9 @@ export default function Dashboard() {
   const handleSignOut = async () => {
     setSignoutLoading(true);
     try {
-      await signOut();
+      await signOut({
+        redirectTo: "/",
+      });
     } catch (error) {
       router.push("/error");
     } finally {
