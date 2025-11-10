@@ -7,7 +7,7 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import { useRouter } from "next/router";
-import RouteWrapper from "~/app/components/route";
+import RouteWrapper from "~/app/components/route-wrapper";
 
 const geist = Geist({
   subsets: ["latin"],
