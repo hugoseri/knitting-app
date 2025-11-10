@@ -5,7 +5,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import Layout from "./layout";
 
-export default function Route({
+export default function RouteWrapper({
   authRequired,
   children,
 }: {

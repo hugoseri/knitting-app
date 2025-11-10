@@ -7,7 +7,7 @@ import { api } from "~/utils/api";
 
 import "~/styles/globals.css";
 import { useRouter } from "next/router";
-import Route from "~/app/components/route";
+import RouteWrapper from "~/app/components/route";
 
 const geist = Geist({
   subsets: ["latin"],
@@ -23,9 +23,9 @@ const MyApp: AppType<{ session: Session | null }> = ({
   return (
     <SessionProvider session={session}>
       <div className={geist.className}>
-        <Route authRequired={isProtected}>
+        <RouteWrapper authRequired={isProtected}>
           <Component {...pageProps} />
-        </Route>
+        </RouteWrapper>
       </div>
     </SessionProvider>
   );
